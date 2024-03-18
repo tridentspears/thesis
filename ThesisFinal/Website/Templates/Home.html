@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .square{
+          width: 717px;
+          height: 517px;
+          border: 2px solid #000;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .navbar {
+          width: 100%;
+          height: 10%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          background-color: #f8f8f8;
+          padding: 10px 0;
+          border-bottom: 1px solid #000;
+        }
+
+        .navbar button {
+          color: #000;
+          font-size: 16px;
+          padding: 10px;
+          border: 1px solid #000;
+          background-color: #f8f8f8;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100px;
+        }
+
+        .navbar button:hover {
+          background-color: lightblue;
+        }
+
+        #content {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px;
+          flex-grow: 1;
+        }
+
+        #user-info, #contact-info {
+          width: 35%;
+          height: 35%;
+          border: 2px solid #000;
+          justify-content: space-between;
+          padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="square">
+        <div class="navbar">
+            <button onclick="location.href='/Home/'">HOME</button>
+            <button onclick="location.href='/Status/'">STATUS</button>
+            <button onclick="location.href='/Exit/'">EXIT</button>
+        </div>
+        <div id="content">
+            <div id="user-info">
+                <p>Username: {{ username }}</p>
+                <p>Name: {{ firstname }} {{ lastname }}</p>
+            </div>
+            <div id="contact-info">
+                <p>Phone: {{ phone_number }}</p>
+                <p>Address: {{ address }}</p>
+                <p>Email: {{ email }}</p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 150px; height: 50px">
+                <button onclick="location.href='/AddressForm/'">Update Information</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        * {box-sizing: border-box}
+        /* Add padding to containers */
+        .container {
+        padding: 16px;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit/register button */
+        button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        }
+
+        button:hover {
+        opacity:1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+        color: lightblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+        }
+
+        .Sign_up{
+        text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{% url 'Login' %}">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Login</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <hr>
+            {{ form.as_p }}
+            <button type="submit" value="Login">Login</button>
+            <label>
+                <input type="checkbox" name="remember"> Remember me
+            </label>
+            <div class="Sign_up">
+                <p>Don't have an account? <a href="/Signup/">Sign up</a>.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

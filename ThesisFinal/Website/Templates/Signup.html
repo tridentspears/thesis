@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <style>
+        .container {
+          padding: 16px;
+        }
+
+
+         input[type=text], input[type=password], input[type=email] {
+              width: 100%;
+              padding: 15px;
+              margin: 5px 0 22px 0;
+              display: inline-block;
+              border: none;
+              background: #f1f1f1;
+            }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        .registerbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+          opacity:1;
+        }
+
+        a {
+          color: lightblue;
+        }
+
+        .signin {
+          background-color: #f1f1f1;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{% url 'Signup' %}">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Register</h1>
+           {% if messages %}
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+           {% endif %}
+            <hr>
+            {{ form.as_p }}
+            <button type="submit" class="registerbtn">Register</button>
+            <div class="container signin">
+                <p>Already have an account? <a href="/Login/">Login</a>.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
